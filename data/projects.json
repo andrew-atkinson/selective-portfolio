@@ -56,51 +56,51 @@
       "description": "<p>Stórhöfði is a peninsula at the southern tip of Heimaey, the principal island in the Westmann archipelago off the southern coast of Iceland. It houses a weather station which recorded the lower air pressure on land in Europe. During the height of summer, even there on the southern tip, it doesn't go dark. The sun descends and glances off the horizon before making its way up again. In two hour intervals, The photographs follow the movement sun, as the earths, whilst I walked around the peninsula and weather station.</p><p>(Off the coast lies Surtsey, a new island that was created by the Mid-Atlantic Ridge in 1963).</p>",
       "images": [
         {
-          "src": "../assets/storhofdi-1.jpg",
+          "src": "assets/storhofdi-1.jpg",
           "caption": "Stórhöfði | 7/19/11 | 2.30am | alt -4.05º | az 13.7º"
         },
         {
-          "src": "../assets/storhofdi-2.jpg",
+          "src": "assets/storhofdi-2.jpg",
           "caption": "Stórhöfði | 7/19/11 | 4.30am | alt 1.85º | az 41.92º"
         },
         {
-          "src": "../assets/storhofdi-3.jpg",
+          "src": "assets/storhofdi-3.jpg",
           "caption": "Stórhöfði | 7/19/11 | 6.30am | alt 12.5º | az 67.94º"
         },
         {
-          "src": "../assets/storhofdi-4.jpg",
+          "src": "assets/storhofdi-4.jpg",
           "caption": "Stórhöfði | 7/19/11 | 8.30am | alt 25.59º | az 94.17º"
         },
         {
-          "src": "../assets/storhofdi-5.jpg",
+          "src": "assets/storhofdi-5.jpg",
           "caption": "Stórhöfði | 7/19/11 | 10.30am | alt 38.16º | az 123.83º"
         },
         {
-          "src": "../assets/storhofdi-6.jpg",
+          "src": "assets/storhofdi-6.jpg",
           "caption": "Stórhöfði | 7/19/11 | 12.30pm | alt 46.36º | az 160.37º"
         },
         {
-          "src": "../assets/storhofdi-7.jpg",
+          "src": "assets/storhofdi-7.jpg",
           "caption": "Stórhöfði | 7/19/11 | 2.30pm | alt 45.15º | az 201.31º"
         },
         {
-          "src": "../assets/storhofdi-8.jpg",
+          "src": "assets/storhofdi-8.jpg",
           "caption": "Stórhöfði | 7/19/11 | 4.30pm | alt 37.64º | az 237.52º"
         },
         {
-          "src": "../assets/storhofdi-9.jpg",
+          "src": "assets/storhofdi-9.jpg",
           "caption": "Stórhöfði | 7/19/11 | 6.30pm | alt 24.96º | az 266.94º"
         },
         {
-          "src": "../assets/storhofdi-10.jpg",
+          "src": "assets/storhofdi-10.jpg",
           "caption": "Stórhöfði | 7/19/11 | 8.30pm | alt 11.88º | az 293.11º"
         },
         {
-          "src": "../assets/storhofdi-11.jpg",
+          "src": "assets/storhofdi-11.jpg",
           "caption": "Stórhöfði | 7/19/11 | 10.30pm | alt 1.38º | az 319.16º"
         },
         {
-          "src": "../assets/storhofdi-12.jpg",
+          "src": "assets/storhofdi-12.jpg",
           "caption": "Stórhöfði | 7/20/11 | 12.30am | alt -5.08º | az 346.52º"
         }
       ],
@@ -119,7 +119,7 @@
       "description": "<p>Captain Stefan stands in the engine room of his whaling ship, <em>Hvalur 8</em>, during a tour. He tells me that the engine has been converted to run on whale oil.</p><p>The ship was previously a Norwegian vessel and the Icelandic whaling tradition maintains the Norwegian fishing traditions. As captain of the vessel, by tradition, Stefan is also the harpooner, and chief medic.</p><p>Whalers notoriously keep their cards close to their chest, but Stefan does describe some of their process. The ship hunts Fin Whale when it migrates through the North Atlantic during the summer. The whalers hunt Fin Whaler closer to Greenland than Iceland, about 12–15 hours from the whaling station and processing plant in Hvalfjörður. They hunt with an explosive 50lb harpoon that must kill in one shot to the back of the head. They then drag the whale to one side of the boat, inflate it and strap it to the side of the ship. (Fin Whales are roughly half the length of <em>Hvalur 8</em>.) From the moment of the first kill they have 18 hours to get the ship and whales back to the whaling station, often leaving just a few hours to catch a second whale.</p><p>It isn't legal to eat Fin Whales in Iceland, they are only sold to Japanese Whaling Ships.</p>",
       "images": [
         {
-          "src": "../assets/stefan-1.jpg",
+          "src": "assets/stefan-1.jpg",
           "caption": "Captain Stefan"
         }
       ],
@@ -137,15 +137,15 @@
       "description": "<p>Grímsey is a small island off the northern coast of Iceland, and the only part of Iceland that intersects the Arctic Circle. The images were taken on that line. In <em>Grímsey Facing West</em> the left part of the seascape is south of the Arctic Circle, and the right part is north of the line, inside the Circle. <em>Grímsey Facing East</em> is opposite, and <em>Grímsey Facing North</em> all of the seascape shown is inside the line. In 2011, when the photographs were taken the latitude for the Arctic Circle was 66°33ʹ35″N. Due to oscillations of the Earth's axis, it has since moved north roughly 48ʹ/15m per year. By 2047, no part of Grímsey will be inside the Arctic Circle.</p>",
       "images": [
         {
-          "src": "../assets/grimsey-1.jpg",
+          "src": "assets/grimsey-1.jpg",
           "caption": "Grímsey Facing West"
         },
         {
-          "src": "../assets/grimsey-2.jpg",
+          "src": "assets/grimsey-2.jpg",
           "caption": "Grímsey Facing East"
         },
         {
-          "src": "../assets/grimsey-3.jpg",
+          "src": "assets/grimsey-3.jpg",
           "caption": "Grímsey Facing North"
         }
       ],
