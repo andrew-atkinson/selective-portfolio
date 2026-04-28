@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selective Works</title>
+    <link rel="stylesheet" href="css/style-minimal.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Works</h2>
+          <button class="sidebar-toggle" aria-label="Toggle sidebar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <ul id="sidebar-nav" class="sidebar-nav">
+          <!-- Navigation items will be generated here -->
+        </ul>
+        <div class="sidebar-footer">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle dark mode"
+          >
+            <span class="theme-toggle-icon"></span>
+            <span class="theme-toggle-label">Dark Mode</span>
+          </button>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <header>
+          <div class="container">
+            <div class="header-content">
+              <h1>Andrew Atkinson | Selective Works</h1>
+              <p class="tagline">
+                A portfolio of artistic practice and research
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="container">
+          <div id="projects-container" class="projects-list">
+            <!-- Projects will be loaded here by JavaScript -->
+          </div>
+        </div>
+
+        <footer>
+          <div class="container">
+            <p>&copy; <span id="year"></span> All rights reserved.</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal">
+      <span class="lightbox-close">Close</span>
+      <img
+        class="lightbox-image"
+        src=""
+        alt=""
+        style="transition: opacity 0.12s ease"
+      />
+      <div class="lightbox-caption"></div>
+      <div class="lightbox-nav">
+        <button
+          class="lightbox-nav-btn lightbox-prev"
+          onclick="lightboxStep(-1)"
+          aria-label="Previous"
+        >
+          &#8592; Prev
+        </button>
+        <button
+          class="lightbox-nav-btn lightbox-next"
+          onclick="lightboxStep(1)"
+          aria-label="Next"
+        >
+          Next &#8594;
+        </button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
