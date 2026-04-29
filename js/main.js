@@ -104,6 +104,56 @@ function setupScrollSpy() {
 }
 
 // ──────────────────────────────────────────────
+// Thumbnail strip (multiple images only)
+// ──────────────────────────────────────────────
+
+function createThumbnailStrip(images, projectIndex) {
+    const stripId = `strip-${projectIndex}`;
+    const carouselId = `carousel-${projectIndex}`;
+
+    const thumbsHTML = images.map((img, i) => `
+        <button class="thumb ${i === 0 ? 'active' : ''}"
+                id="${stripId}-thumb-${i}"
+                onclick="jumpCarousel('${carouselId}', ${i}, ${projectIndex})"
+                aria-label="Image ${i + 1}${img.caption ? ': ' + img.caption : ''}">
+            <img src="${img.src}" alt="${img.caption || ''}" loading="lazy">
+        </button>
+    `).join('');
+
+    return `<div class="thumbnail-strip" id="${stripId}">${thumbsHTML}</div>`;
+}
+
+// Jump a carousel to a specific index and sync thumbnail strip
+window.jumpCarousel = function(carouselId, targetIndex, projectIndex) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+
+    const current = parseInt(carousel.dataset.current);
+    if (current === targetIndex) return;
+
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const total = parseInt(carousel.dataset.total);
+
+    slides[current].classList.remove('active');
+    slides[targetIndex].classList.add('active');
+    carousel.dataset.current = targetIndex;
+
+    const counter = carousel.querySelector('.carousel-counter');
+    const captionEl = carousel.querySelector('.carousel-caption');
+    if (counter) counter.innerHTML = `${pad2(targetIndex + 1)} &mdash; ${pad2(total)}`;
+    if (captionEl) captionEl.textContent = slides[targetIndex].dataset.caption || '';
+
+    syncThumbs(projectIndex, targetIndex);
+};
+
+function syncThumbs(projectIndex, activeIndex) {
+    const stripId = `strip-${projectIndex}`;
+    document.querySelectorAll(`#${stripId} .thumb`).forEach((btn, i) => {
+        btn.classList.toggle('active', i === activeIndex);
+    });
+}
+
+// ──────────────────────────────────────────────
 // Image rendering: single image or carousel
 // ──────────────────────────────────────────────
 
@@ -179,6 +229,10 @@ window.carouselNav = function(carouselId, direction) {
 
     if (counter) counter.innerHTML = `${pad2(current + 1)} &mdash; ${pad2(total)}`;
     if (captionEl) captionEl.textContent = slides[current].dataset.caption || '';
+
+    // Keep thumbnail strip in sync with arrow navigation
+    const projectIndex = parseInt(carousel.dataset.project);
+    syncThumbs(projectIndex, current);
 };
 
 // ──────────────────────────────────────────────
@@ -298,6 +352,7 @@ function renderProject(project, index) {
 
     html += '<div class="project-media">';
     if (project.video) html += createVideoEmbed(project.video);
+    if (project.images?.length > 1) html += createThumbnailStrip(project.images, index);
     if (project.images?.length > 0) html += createImageCarousel(project.images, index);
     html += '</div>';
 
