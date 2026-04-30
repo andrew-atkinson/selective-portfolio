@@ -184,6 +184,51 @@
         "Lightroom",
         "4x5 negatives"
       ]
+    },
+    {
+      "title": "Grid Dirt Glass",
+      "year": 2005,
+      "group": "Not the West Side Highway",
+      "description": "<p>These eight photographs were made with an obsolete rickety large-format scanning back. Each exposure takes between ten and thirty minutes, during which light shifts, trees move, and traffic passes through the frame; time sediments into the image rather than being arrested by it. The work troubles photography's foundational claim to the instantaneous, proposing instead something closer to what Roland Barthes called duration made visible, or what Vilém Flusser might recognize as the apparatus asserting itself against the intentions of its operator.</p><p>The subject is an apartment building's facade, seen through glass filmed with the particulate residue of urban circulation—tire rubber, road asphalt, the invisible load of the city's air. Three grids are held in tension: the architectural grid of the building/city, the mesh of the window screen admitting microplastic while promising exclusion, and the pixel grid of the digital sensor beneath.</p><p>The glass window acts as a partial backstop to the sediment and pollution, the scanning back glitches and stutters, each of these systems of order are made legible precisely through their failure and the side effects of what they aim to hide.</p>",
+      "images": [
+        {
+          "src": "assets/grid_dirt_glass_1.jpg",
+          "caption": "Gird Dirt Glass 1"
+        },
+        {
+          "src": "assets/grid_dirt_glass_2.jpg",
+          "caption": "Gird Dirt Glass 2"
+        },
+        {
+          "src": "assets/grid_dirt_glass_3.jpg",
+          "caption": "Gird Dirt Glass 3"
+        },
+        {
+          "src": "assets/grid_dirt_glass_4.jpg",
+          "caption": "Gird Dirt Glass 4"
+        },
+        {
+          "src": "assets/grid_dirt_glass_5.jpg",
+          "caption": "Gird Dirt Glass 5"
+        },
+        {
+          "src": "assets/grid_dirt_glass_6.jpg",
+          "caption": "Gird Dirt Glass 6"
+        },
+        {
+          "src": "assets/grid_dirt_glass_6.jpg",
+          "caption": "Gird Dirt Glass 6"
+        },
+        {
+          "src": "assets/grid_dirt_glass_7.jpg",
+          "caption": "Gird Dirt Glass 7"
+        }
+      ],
+      "tools": [
+        "Lightroom",
+        "4x5 negatives",
+        "Scanning back"
+      ]
     }
   ]
 }
