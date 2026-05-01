@@ -23,7 +23,7 @@
   --font-sans: "Helvetica Neue", "Arial", sans-serif;
   --font-mono: "Courier New", "Courier", monospace;
 
-  --max-width: 820px;
+  --max-width: 600px;
   --sidebar-width: 200px;
   --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -36,6 +36,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Images always shrink proportionally within their container */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 html {
@@ -813,38 +820,366 @@ footer p {
 }
 
 /* ==================== RESPONSIVE ==================== */
-@media (max-width: 1024px) {
+@media (max-width: 950px) {
   :root {
     --sidebar-width: 175px;
+    --max-width: calc(100% - var(--sidebar-width));
   }
 
   h1 {
     font-size: 2rem;
   }
-}
 
-@media (max-width: 768px) {
-  :root {
-    --sidebar-width: 0px;
+  header h1 {
+    font-size: 1.9rem;
   }
 
+  /* Project cards: tighten up slightly on tablet */
+  .project-title {
+    font-size: 1.55rem;
+  }
+
+  .project-metadata {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  :root {
+    --sidebar-width: 0px;
+    --mobile-header-height: 3rem;
+    --max-width: 550px /*calc(100% - var(--sidebar-width));*/;
+  }
+
+  /* ── Sidebar becomes a sticky top bar.
+     The header row is ALWAYS visible; only nav + footer collapse. ── */
   .sidebar {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: auto;
-    max-height: 0;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
-    overflow: hidden;
-    transition: max-height var(--transition);
+    overflow: hidden; /* clips the collapsing nav underneath */
     padding-top: 0;
+    z-index: 1001;
+    /* no max-height limit here — the header must stay visible */
+  }
+
+  /* Header row: always rendered, acts as the mobile nav bar */
+  .sidebar-header {
+    padding: 0.6rem var(--spacing-md);
+    margin-bottom: 0;
+    min-height: var(--mobile-header-height);
+    display: flex;
+    align-items: center;
+  }
+
+  /* Nav and footer collapse independently.
+     Use .sidebar .sidebar-nav (specificity 0,0,2,0) so this always beats
+     the late-in-file ".sidebar-nav { flex:1 }" rule (specificity 0,0,1,0)
+     regardless of source order. Same trick for .sidebar-footer. */
+  .sidebar .sidebar-nav {
+    flex: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .sidebar .sidebar-footer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0; /* prevent padding bleed-through on max-height:0 */
+    border: none;
+    transition: max-height 0.35s ease;
+  }
+
+  /* Expand when sidebar receives .open class */
+  .sidebar.open .sidebar-nav {
+    max-height: 72vh;
+    overflow-y: auto;
+  }
+
+  .sidebar.open .sidebar-footer {
+    max-height: 4rem;
+    padding: var(--spacing-sm) 0;
+    border-top: 1px solid var(--border-color);
   }
 
   .sidebar.open {
-    max-height: 80vh;
-    padding-top: var(--spacing-lg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  }
+
+  /* Show the hamburger — it lives in the always-visible header row */
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  /* Animate hamburger → × */
+  .sidebar-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+
+  .sidebar-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .sidebar-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+
+  /* Main content: no left margin, but top padding clears the sticky bar */
+  .main-content {
+    margin-left: 0;
+    padding-top: var(--mobile-header-height);
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  /* ── Project card content ── */
+  .project-title {
+    font-size: 1.35rem;
+  }
+
+  /* Description "Read more" toggle fills the tap zone */
+  .description-toggle {
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* Metadata: two equal columns on medium-mobile */
+  .project-metadata {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  /* Carousel caption: allow wrapping rather than overflowing */
+  .carousel-info {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .carousel-caption {
+    white-space: normal;
+    word-break: break-word;
+    font-size: 0.7rem;
+  }
+
+  /* Thumbnail strip: slightly smaller thumbs so more fit on screen */
+  .thumb {
+    width: 48px;
+    height: 36px;
+  }
+
+  .project::after {
+    font-size: 4rem;
+    right: var(--spacing-md);
+  }
+
+  /* Pull in the bottom padding on each project */
+  .project {
+    padding-bottom: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 550px) {
+  :root {
+    --spacing-xl: 1.75rem;
+    --spacing-lg: 1.25rem;
+    --max-width: calc(
+      90% - var(--sidebar-width)
+    ); /* override 72% — at 375px that'd be only 270px */
+  }
+
+  /* Prevent any child from causing horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    justify-content: center;
+    padding: 0 var(--spacing-sm);
+    /* margin: 0 auto; */
+    max-width: 90vw;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    word-break: break-word;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  /* ── Project card content (small phones) ── */
+  .project-title {
+    font-size: 1.15rem;
+  }
+
+  .project-year {
+    font-size: 0.65rem;
+  }
+
+  /* Stack description toggle full-width for easy tapping */
+  .description-toggle {
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.6rem var(--spacing-sm);
+  }
+
+  /* Metadata: single column */
+  .project-metadata {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  /* Links: stack vertically */
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-link {
+    display: block;
+    text-align: center;
+  }
+
+  /* Carousel: compact nav, smaller buttons */
+  .carousel-nav {
+    grid-template-columns: 2.25rem 1fr 2.25rem;
+    min-height: 2.75rem;
+  }
+
+  .carousel-btn {
+    font-size: 0.85rem;
+  }
+
+  .carousel-counter {
+    font-size: 0.55rem;
+    letter-spacing: 1.5px;
+  }
+
+  .carousel-caption {
+    font-size: 0.65rem;
+  }
+
+  /* Thumbnails: smallest usable size */
+  .thumb {
+    width: 40px;
+    height: 32px;
+  }
+
+  /* Metadata labels and values: tighter */
+  .metadata-section h4 {
+    font-size: 0.6rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .metadata-section li {
+    font-size: 0.78rem;
+  }
+
+  .project::after {
+    display: none;
+  }
+
+  /* Carousel nav bar: let caption wrap */
+  .carousel-info {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .lightbox-image {
+    max-width: 95%;
+  }
+
+  .lightbox-caption {
+    max-width: 90%;
+    font-size: 0.72rem;
+  }
+
+  .lightbox-close {
+    right: var(--spacing-md);
+    top: var(--spacing-md);
+  }
+
+  .lightbox-nav {
+    gap: var(--spacing-md);
+  }
+}
+
+/* ==================== LANDSCAPE PHONES ==================== */
+/* Catches phones rotated to landscape — typically height ≤ 500px,
+   width 568-896px. These don't all hit the portrait ≤768px breakpoint
+   (e.g. iPhone 14 landscape is 844px wide), so we target them explicitly. */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root {
+    --sidebar-width: 0px;
+    --mobile-header-height: 2.5rem;
+    --max-width: 100%;
+  }
+
+  /* Repeat the mobile sidebar → top bar treatment */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    padding-top: 0;
+    z-index: 1001;
+  }
+
+  .sidebar-header {
+    padding: 0.4rem var(--spacing-md);
+    margin-bottom: 0;
+    min-height: var(--mobile-header-height);
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar .sidebar-nav {
+    flex: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .sidebar .sidebar-footer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    transition: max-height 0.35s ease;
+  }
+
+  .sidebar.open .sidebar-nav {
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+
+  .sidebar.open .sidebar-footer {
+    max-height: 3rem;
+    padding: var(--spacing-sm) 0;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .sidebar.open {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
   }
 
   .sidebar-toggle {
@@ -863,71 +1198,53 @@ footer p {
     transform: rotate(-45deg) translate(4px, -4px);
   }
 
+  /* Content shifts up to clear the compact top bar */
   .main-content {
     margin-left: 0;
+    padding-top: var(--mobile-header-height);
   }
 
   .container {
     padding: 0 var(--spacing-md);
   }
 
-  h1 {
-    font-size: 1.8rem;
+  body {
+    overflow-x: hidden;
   }
 
-  .project-metadata {
-    grid-template-columns: 1fr 1fr;
+  /* In landscape the screen is short — cap portrait images by height
+     so they don't force scrolling just to see one image */
+  .project-single-image img {
+    max-height: 72vh;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
-  .project::after {
-    font-size: 4.5rem;
-    right: var(--spacing-md);
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    --spacing-xl: 1.75rem;
-    --spacing-lg: 1.25rem;
+  .carousel-slide img {
+    max-height: 65vh;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
-  .container {
-    padding: 0 var(--spacing-sm);
+  /* Tighten vertical spacing to show more content above the fold */
+  .projects-list {
+    gap: var(--spacing-lg);
   }
 
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .project-title {
-    font-size: 1.35rem;
-  }
-
-  .project-metadata {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-  }
-
-  .project-link {
-    display: block;
-    text-align: center;
-  }
-
-  .project::after {
-    display: none;
+  .project {
+    padding-bottom: var(--spacing-md);
   }
 
   .lightbox-image {
-    max-width: 95%;
-  }
-
-  .lightbox-caption {
+    max-height: 75vh;
     max-width: 90%;
   }
 
-  .lightbox-close {
-    right: var(--spacing-md);
-    top: var(--spacing-md);
+  .lightbox-caption {
+    max-width: 88%;
+    font-size: 0.72rem;
   }
 }
 
@@ -953,51 +1270,53 @@ footer p {
 
 /* ==================== THUMBNAIL STRIP ==================== */
 .thumbnail-strip {
-    display: flex;
-    gap: 4px;
-    overflow-x: auto;
-    margin-bottom: var(--spacing-sm);
-    padding-bottom: 2px; /* prevents scrollbar from clipping thumb border */
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-color) transparent;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: 2px; /* prevents scrollbar from clipping thumb border */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
 }
 
 .thumbnail-strip::-webkit-scrollbar {
-    height: 3px;
+  height: 3px;
 }
 
 .thumbnail-strip::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+  background: var(--border-color);
 }
 
 .thumb {
-    flex-shrink: 0;
-    width: 58px;
-    height: 44px;
-    border: 1px solid var(--border-color);
-    background: var(--secondary-bg);
-    cursor: pointer;
-    padding: 0;
-    overflow: hidden;
-    opacity: 0.45;
-    transition: opacity 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+  width: 58px;
+  height: 44px;
+  border: 1px solid var(--border-color);
+  background: var(--secondary-bg);
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0.45;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .thumb:hover {
-    opacity: 0.75;
-    border-color: var(--text-light);
+  opacity: 0.75;
+  border-color: var(--text-light);
 }
 
 .thumb.active {
-    border-color: var(--text-dark);
-    opacity: 1;
+  border-color: var(--text-dark);
+  opacity: 1;
 }
 
 /* ==================== SIDEBAR FOOTER & THEME TOGGLE ==================== */
