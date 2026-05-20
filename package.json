@@ -1,0 +1,13 @@
+{
+  "name": "selective-works",
+  "version": "1.0.0",
+  "description": "Andrew Atkinson — Selective Works portfolio",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:dry": "node scripts/build.js --dry-run"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

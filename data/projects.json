@@ -180,6 +180,7 @@
           "caption": "Krafla 4"
         }
       ],
+      "fileType": "images",
       "tools": [
         "Lightroom",
         "4x5 negatives"
@@ -193,37 +194,38 @@
       "images": [
         {
           "src": "assets/grid_dirt_glass_1.jpg",
-          "caption": "Gird Dirt Glass 1"
+          "caption": "Grid Dirt Glass 1"
         },
         {
           "src": "assets/grid_dirt_glass_2.jpg",
-          "caption": "Gird Dirt Glass 2"
+          "caption": "Grid Dirt Glass 2"
         },
         {
           "src": "assets/grid_dirt_glass_3.jpg",
-          "caption": "Gird Dirt Glass 3"
+          "caption": "Grid Dirt Glass 3"
         },
         {
           "src": "assets/grid_dirt_glass_4.jpg",
-          "caption": "Gird Dirt Glass 4"
+          "caption": "Grid Dirt Glass 4"
         },
         {
           "src": "assets/grid_dirt_glass_5.jpg",
-          "caption": "Gird Dirt Glass 5"
+          "caption": "Grid Dirt Glass 5"
         },
         {
           "src": "assets/grid_dirt_glass_6.jpg",
-          "caption": "Gird Dirt Glass 6"
-        },
-        {
-          "src": "assets/grid_dirt_glass_6.jpg",
-          "caption": "Gird Dirt Glass 6"
+          "caption": "Grid Dirt Glass 6"
         },
         {
           "src": "assets/grid_dirt_glass_7.jpg",
-          "caption": "Gird Dirt Glass 7"
+          "caption": "Grid Dirt Glass 7"
+        },
+        {
+          "src": "assets/grid_dirt_glass_8.jpg",
+          "caption": "Grid Dirt Glass 8"
         }
       ],
+      "fileType": "images",
       "tools": [
         "Lightroom",
         "4x5 negatives",
