@@ -1,275 +1,189 @@
-# Selective Works Portfolio Website
+# Selective Works — Andrew Atkinson
 
-A professional, easy-to-maintain portfolio website for an art professor, built as a static site compatible with GitHub Pages.
-
-## Overview
-
-This portfolio website is designed to be:
-- **Easy to maintain**: Add, edit, or remove projects by editing a simple JSON file
-- **Fast to load**: Static HTML/CSS/JavaScript, no database or server needed
-- **GitHub Pages compatible**: Deploy directly from your GitHub repository
-- **Responsive**: Works beautifully on desktop, tablet, and mobile devices
-- **Professional**: Clean, academic design suitable for an art professor's work
+A static portfolio site with a Node.js build pipeline. Content is authored in Markdown (`docs/projects.md`), compiled to JSON, and baked into static HTML — no database or server required.
 
 ## Project Structure
 
 ```
 portfolio/
-├── index.html                 # Main page (do not edit)
+├── index.html                 # Built output — do not edit by hand
 ├── css/
-│   └── style.css             # Styling (can customize colors/fonts)
+│   └── style-minimal.css      # Stylesheet (customize colors/fonts here)
 ├── js/
-│   └── main.js               # JavaScript (loads projects, do not edit)
+│   └── main.js                # Runtime JS: carousel, lightbox, sidebar, theme
 ├── data/
-│   └── projects.json         # 🔑 PROJECT DATA (edit this to manage projects)
-├── assets/                   # Images and media files
-├── docs/                     # Documentation
-├── README.md                 # This file
-└── .gitignore               # Git configuration
-
+│   └── projects.json          # Built output — do not edit by hand
+├── docs/
+│   └── projects.md            # ✏️  EDIT THIS to manage projects
+├── scripts/
+│   ├── build.js               # docs/projects.md → data/projects.json
+│   └── render.js              # data/projects.json → index.html
+├── assets/                    # Images and other media
+├── package.json
+└── README.md
 ```
 
-## Managing Your Portfolio
+## Workflow
 
-### Adding a New Project
+All content lives in `docs/projects.md`. After editing it, run the pipeline to rebuild the site:
 
-1. Open `data/projects.json` in any text editor
-2. Add a new project object to the `projects` array
-3. Fill in the project details (see "Project Fields" section below)
-4. Save the file
-5. The changes appear automatically on your website
+```bash
+npm run pipeline
+```
 
-### Example: Adding a New Project
+This runs both steps in sequence:
 
-```json
-{
-  "title": "My New Project Title",
-  "year": 2024,
-  "group": "Project Series Name",
-  "description": "<p>Project description here. You can use HTML tags like <em>emphasis</em> or <strong>bold</strong>.</p>",
-  "images": [
-    {
-      "src": "../assets/my-image-1.jpg",
-      "caption": "Image caption"
-    }
-  ],
-  "tools": [
-    "Tool 1",
-    "Tool 2"
-  ],
-  "links": [
-    {
-      "label": "GitHub Repository",
-      "url": "https://github.com/..."
-    }
-  ]
+| Command | What it does |
+|---|---|
+| `npm run build` | Parses `docs/projects.md` → writes `data/projects.json` |
+| `npm run render` | Reads `data/projects.json` → bakes static HTML into `index.html` |
+| `npm run pipeline` | Runs both in order |
+| `npm run build:dry` | Prints JSON to stdout without writing |
+| `npm run render:dry` | Prints HTML to stdout without writing |
+
+Requires Node.js 16 or later. No dependencies to install.
+
+## Editing Projects
+
+Open `docs/projects.md` in any text editor. Each project follows this schema:
+
+```markdown
+## Project N
+
+### Title
+Your Project Title
+
+### Year
+2024
+
+### Group
+Series Name
+
+### Description
+Plain text paragraphs here. Separate paragraphs with a blank line.
+Each paragraph becomes a <p> tag. Use _italic_ and **bold** inline.
+
+### Tools
+- Tool 1
+- Tool 2
+
+### Images
+![Caption text](../assets/filename.jpg)
+
+### Video
+[Label](https://vimeo.com/...)
+
+### File Type
+images
+
+### Collaborators
+- Name One
+- Name Two
+
+### Datasets
+- [Dataset Name](https://url-to-dataset)
+
+### Links
+- [Label](https://url)
+- [Another Label](https://url)
+
+### Repository
+https://github.com/...
+
+---
+```
+
+### Field reference
+
+| Field | Required | Notes |
+|---|---|---|
+| Title | Yes | Plain text |
+| Year | Yes | Four-digit number, used for sorting (newest first) |
+| Group | Yes | Series name — groups projects in the sidebar |
+| Description | Yes | Plain text paragraphs; `_italic_` → `<em>`, `**bold**` → `<strong>` |
+| Tools | Yes | Bullet list |
+| Images | Optional | One `![caption](../assets/file)` per line |
+| Video | Optional | Bare URL or `[Label](url)` — supports Vimeo, YouTube, Google Drive |
+| File Type | Optional | e.g. `images`, `online .mov` |
+| Collaborators | Optional | Bullet list of names |
+| Datasets | Optional | Bullet list of `[Label](url)` links |
+| Links | Optional | Bullet list of `[Label](url)` links |
+| Repository | Optional | Bare URL — auto-labelled "GitHub Repository" and added to links |
+
+Projects are displayed in reverse chronological order by year. Within the same year, they appear in the order written in `docs/projects.md`.
+
+### Adding a new project
+
+1. Open `docs/projects.md`
+2. Add a new `## Project N` block at the end (increment the number)
+3. Fill in the fields using the schema above
+4. Place any image files in `assets/`
+5. Run `npm run pipeline`
+
+### Adding images
+
+Place image files in `assets/` and reference them as `../assets/filename.jpg` in the Images field. One image per line, in the order you want them displayed.
+
+Supported formats: JPG, PNG, WebP.
+
+A single image renders full-width with a click-to-zoom lightbox. Two or more images render as a carousel with a thumbnail strip.
+
+### Video embeds
+
+Paste the sharing URL — the pipeline handles the embed conversion:
+
+- **Vimeo**: `https://vimeo.com/553111781`
+- **YouTube**: `https://youtube.com/watch?v=...`
+- **Google Drive**: `https://drive.google.com/file/d/.../view`
+
+## Customisation
+
+### Colors and typography
+
+Edit `css/style-minimal.css`. All design tokens are CSS variables at the top of the file:
+
+```css
+:root {
+  --primary-bg: #fdfcfa;
+  --text-dark:  #2a2520;
+  --accent-color: #1a1a1a;
+  --font-serif: "Garamond", "Baskerville", "Georgia", serif;
+  --font-sans:  "Helvetica Neue", "Arial", sans-serif;
+  --sidebar-width: 200px;
 }
 ```
 
-### Project Fields Reference
+### Site title and tagline
 
-#### Required Fields
+Edit `docs/projects.md` — the `## Page Title` section at the top. Then re-run `npm run pipeline`. Alternatively edit the `<h1>` and `<p class="tagline">` directly in `index.html` between pipeline runs (they will be preserved since the renderer only touches the `#sidebar-nav` and `#projects-container` elements).
 
-- **`title`** (string): Project title
-- **`year`** (number): Year of creation (used for sorting)
+## Deployment
 
-#### Optional Fields
+### GitHub Pages
 
-- **`group`** (string): Project series/group name (displays as a badge)
-- **`description`** (string): Project description. Use HTML for formatting:
-  - `<p>Paragraph</p>`
-  - `<em>Italics</em>`
-  - `<strong>Bold</strong>`
-  - `<a href="url">Link</a>`
-
-- **`images`** (array): Array of image objects
-  ```json
-  "images": [
-    {
-      "src": "../assets/image-1.jpg",
-      "caption": "Optional caption"
-    }
-  ]
-  ```
-
-- **`video`** (string): Video URL (supports Vimeo, YouTube, or Google Drive)
-  - Vimeo: `https://vimeo.com/553111781`
-  - YouTube: `https://youtube.com/watch?v=...`
-  - Google Drive: `https://drive.google.com/file/d/...`
-
-- **`fileType`** (string): Type of media (e.g., "images", "online .mov", "audio")
-
-- **`tools`** (array): List of tools/technologies used
-  ```json
-  "tools": ["Max/MSP", "OpenGL", "Python"]
-  ```
-
-- **`collaborators`** (array): Names of collaborators
-  ```json
-  "collaborators": ["Jane Doe", "John Smith"]
-  ```
-
-- **`datasets`** (array): Data sources or resources used
-  ```json
-  "datasets": [
-    {
-      "name": "NYC Open Data",
-      "url": "https://data.cityofnewyork.us/..."
-    }
-  ]
-  ```
-
-- **`links`** (array): External links (GitHub, video links, etc.)
-  ```json
-  "links": [
-    {
-      "label": "GitHub Repository",
-      "url": "https://github.com/..."
-    },
-    {
-      "label": "Watch on Vimeo",
-      "url": "https://vimeo.com/..."
-    }
-  ]
-  ```
-
-### Managing Images
-
-1. Place images in the `assets/` folder
-2. Reference them in `projects.json` with the path `../assets/filename.jpg`
-3. Organize images by project:
-   ```
-   assets/
-   ├── storhofdi-1.jpg
-   ├── storhofdi-2.jpg
-   ├── grimsey-1.jpg
-   ├── stefan-1.jpg
-   └── ...
-   ```
-
-4. Supported formats: JPG, PNG, WebP, GIF
-
-### Sorting Projects
-
-Projects automatically display in **reverse chronological order** (newest first) based on the `year` field. The website sorts them when loading.
-
-## Customization
-
-### Changing Colors and Fonts
-
-Edit `css/style.css` to customize the design:
-
-```css
-/* Change primary accent color */
---accent-color: #1a5f7a;        /* Teal blue */
-
-/* Change fonts */
---font-serif: 'Georgia', serif;    /* For headings */
---font-sans: system fonts;          /* For body text */
-
-/* Adjust spacing */
---spacing-lg: 2rem;
+```bash
+git add docs/projects.md assets/ data/projects.json index.html
+git commit -m "Update portfolio"
+git push origin main
 ```
 
-### Changing the Site Title and Tagline
+Enable GitHub Pages in repository Settings → Pages → Source: main branch, root folder. The site is then live at `https://username.github.io/repository-name`.
 
-Edit `index.html`:
-
-```html
-<h1>Your Site Title</h1>
-<p class="tagline">Your tagline here</p>
-```
-
-## Deployment to GitHub Pages
-
-### Initial Setup
-
-1. Create a GitHub account (if you don't have one)
-2. Create a new repository named `username.github.io` (replace `username` with your GitHub username)
-3. Clone the repository locally
-4. Copy the portfolio files into the repository
-5. Push to GitHub
-
-### Updating Your Portfolio
-
-After you've set up GitHub Pages:
-
-1. Edit `data/projects.json` locally
-2. Add new images to the `assets/` folder
-3. Commit and push changes to GitHub:
-   ```bash
-   git add .
-   git commit -m "Update portfolio with new project"
-   git push origin main
-   ```
-
-4. Changes appear on your website within seconds
-
-### Alternative: Using GitHub Web Editor
-
-You can edit files directly on GitHub without using the command line:
-
-1. Go to your repository on GitHub
-2. Navigate to `data/projects.json`
-3. Click the pencil icon to edit
-4. Make changes and click "Commit changes"
-5. Changes appear on your website automatically
+Because `index.html` is pre-baked, the site works on any static host (Netlify, Vercel, S3, etc.) without a build step on the server.
 
 ## Troubleshooting
 
-### Projects not appearing?
+**Projects not appearing after running the pipeline**
+Check that `docs/projects.md` has `## Project N` headings and each project has at least a Title, Year, and Group field. Run `npm run build:dry` to inspect the JSON output.
 
-- Check that `data/projects.json` is valid JSON (use an online JSON validator)
-- Make sure all image paths start with `../assets/`
-- Check browser console for errors (F12 → Console tab)
+**Images not loading**
+Confirm the file exists in `assets/` and the path in `projects.md` matches exactly (paths are case-sensitive on Linux/macOS servers). Reference images as `../assets/filename.jpg`.
 
-### Images not loading?
+**Videos not embedding**
+Supported platforms are Vimeo, YouTube, and Google Drive. For Google Drive, use the file sharing link (`/file/d/.../view`), not the folder link.
 
-- Verify image files exist in the `assets/` folder
-- Check that file paths in `projects.json` match exactly (case-sensitive on some servers)
-- Use absolute paths if needed: `https://yourdomain.com/assets/image.jpg`
+**Pipeline produced duplicate content**
+This should not happen — the renderer uses comment markers (`<!-- PROJECTS_START -->` / `<!-- PROJECTS_END -->`) to make repeated runs idempotent. If you suspect duplication, open `index.html` and check for more than 7 `class="project"` elements. If found, delete the contents of `index.html` and replace it with the clean template, then re-run `npm run pipeline`.
 
-### Videos not embedding?
-
-- Supported platforms: Vimeo, YouTube, Google Drive
-- For Google Drive, use the full sharing link
-- Test the video URL in a browser first
-
-### Styling issues?
-
-- Clear browser cache (Ctrl+F5 or Cmd+Shift+R)
-- Make sure `css/style.css` is in the correct location
-- Check browser console for CSS errors
-
-## Tips and Best Practices
-
-1. **Backup your work**: Keep a backup of your `data/projects.json` file
-2. **Test locally**: Open `index.html` in a browser to preview changes
-3. **Use meaningful file names**: Name images like `project-name-1.jpg`, not `image1.jpg`
-4. **Optimize images**: Compress images before uploading (use TinyPNG.com)
-5. **Validate JSON**: Use an online JSON validator when editing `projects.json`
-6. **Use descriptive captions**: Add captions to images for context
-7. **Keep descriptions concise**: Long descriptions may not fit well on smaller screens
-
-## Browser Support
-
-Works on:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## License
-
-This portfolio template is provided as-is. Customize it as needed for your use.
-
-## Support
-
-For help with:
-- **JSON formatting**: [JSON.org](https://www.json.org)
-- **GitHub Pages**: [GitHub Pages Documentation](https://pages.github.com)
-- **HTML/CSS**: [MDN Web Docs](https://developer.mozilla.org)
-
----
-
-**Last updated**: April 2024
+**Styling looks wrong after editing CSS**
+Hard-reload the browser (Cmd+Shift+R / Ctrl+Shift+R) to bypass the cache. The stylesheet uses a cache-busting version string in `index.html` — if you change the CSS significantly, increment the `?v=N` query string on the `<link>` tag.
