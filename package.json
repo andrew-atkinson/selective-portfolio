@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "build": "node scripts/build.js",
-    "build:dry": "node scripts/build.js --dry-run"
+    "build:dry": "node scripts/build.js --dry-run",
+    "render": "node scripts/render.js",
+    "render:dry": "node scripts/render.js --dry-run",
+    "pipeline": "node scripts/build.js && node scripts/render.js"
   },
   "engines": {
     "node": ">=16"

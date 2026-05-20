@@ -11,6 +11,9 @@ let sidebarOpen = false;
 // ──────────────────────────────────────────────
 
 async function loadProjects() {
+    // Use pre-baked data injected by render.js (skips the network fetch)
+    if (window.__PROJECTS__) return window.__PROJECTS__;
+
     try {
         const response = await fetch(PROJECTS_DATA_FILE);
         if (!response.ok) throw new Error(`Failed to load: ${response.statusText}`);
@@ -506,8 +509,14 @@ async function init() {
     initTheme();
 
     allProjects = await loadProjects();
-    generateSidebarNav(allProjects);
-    renderAllProjects(allProjects);
+
+    // If projects were pre-baked into the HTML by render.js, skip re-rendering
+    // (the DOM is already populated; we only need JS interactivity wired up)
+    if (!window.__PROJECTS__) {
+        generateSidebarNav(allProjects);
+        renderAllProjects(allProjects);
+    }
+
     setupScrollSpy();
     setupKeyboard();
 
