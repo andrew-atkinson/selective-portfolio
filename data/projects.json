@@ -164,19 +164,19 @@
       "description": "<p>Krafla is a volcanic caldera in the north of Iceland, part of the Mid-Atlantic Ridge. The area is geologically active, with frequent eruptions and geothermal activity. The photographs focus on the fissures and vents that mark the landscape. The images the earth's internal forces made visible.</p>",
       "images": [
         {
-          "src": "../assets/krafla-1.png",
+          "src": "assets/krafla-1.png",
           "caption": "Krafla 1"
         },
         {
-          "src": "../assets/krafla-2.png",
+          "src": "assets/krafla-2.png",
           "caption": "Krafla 2"
         },
         {
-          "src": "../assets/krafla-3.png",
+          "src": "assets/krafla-3.png",
           "caption": "Krafla 3"
         },
         {
-          "src": "../assets/krafla-4.png",
+          "src": "assets/krafla-4.png",
           "caption": "Krafla 4"
         }
       ],
