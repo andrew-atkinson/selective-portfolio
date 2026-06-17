@@ -282,7 +282,91 @@ images
 
 ---
 
+### File Type
+
+images
+
+---
+
 ## Project 7
+
+### Title
+
+Heimaey
+
+### Year
+
+2013
+
+### Group
+
+Ultima Thule
+
+### Description
+
+### Tools
+
+- Lightroom
+- 4x5 negatives
+
+### Images
+
+![Heimaey 1](../assets/heimaey-1.png)
+![Heimaey 2](../assets/heimaey-2.png)
+![Heimaey 3](../assets/heimaey-3.png)
+![Heimaey 4](../assets/heimaey-4.png)
+![Heimaey 5](../assets/heimaey-5.png)
+![Heimaey 6](../assets/heimaey-6.png)
+![Heimaey 7](../assets/heimaey-7.png)
+![Heimaey 8](../assets/heimaey-8.png)
+![Heimaey 9](../assets/heimaey-9.png)
+![Heimaey 10](../assets/heimaey-10.png)
+![Heimaey 11](../assets/heimaey-11.png)
+![Heimaey 12](../assets/heimaey-12.png)
+
+### File Type
+
+images
+
+---
+
+## Project 8
+
+### Title
+
+Skogar
+
+### Year
+
+2013
+
+### Group
+
+Ultima Thule
+
+### Description
+
+Heimaey sits on a living geology. The 1973 eruption didn't end so much as pause — the lava fields remain, the buried houses remain, and the island's expanded coastline, formed from that eruption, shelters the fishing fleet that has always been the reason to live here at all. The island grew during the eruption. That new land became the harbor wall that saved the fishing industry. The catastrophe created the conditions for survival.
+
+These photographs follow a material that keeps reappearing: black netting, draped over stored fishing gear, over excavated foundations, over the managed lava fields at the edge of town. It may be literally the same material — on a small island, things get repurposed. The fishing nets echo the memorial netting. It covers objects to store them, to preserve them, to hold them in suspension between one use and the next. In doing so it makes new landforms out of hidden ones, a second topography laid over the first.
+The eruption created the harbor that saved the fishing industry, which supplies the netting that now marks the site of the eruption. On Heimaey, catastrophe and survival share the same materials.
+
+### Tools
+
+- Lightroom
+- 4x5 negatives
+
+### Images
+
+![Skogar](../assets/skogar-1.jpg)
+
+### File Type
+
+images
+
+---
+
+## Project 9
 
 ### Title
 

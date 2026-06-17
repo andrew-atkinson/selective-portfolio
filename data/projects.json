@@ -191,6 +191,83 @@
       ]
     },
     {
+      "title": "Heimaey",
+      "year": 2013,
+      "group": "Ultima Thule",
+      "images": [
+        {
+          "src": "assets/heimaey-1.png",
+          "caption": "Heimaey 1"
+        },
+        {
+          "src": "assets/heimaey-2.png",
+          "caption": "Heimaey 2"
+        },
+        {
+          "src": "assets/heimaey-3.png",
+          "caption": "Heimaey 3"
+        },
+        {
+          "src": "assets/heimaey-4.png",
+          "caption": "Heimaey 4"
+        },
+        {
+          "src": "assets/heimaey-5.png",
+          "caption": "Heimaey 5"
+        },
+        {
+          "src": "assets/heimaey-6.png",
+          "caption": "Heimaey 6"
+        },
+        {
+          "src": "assets/heimaey-7.png",
+          "caption": "Heimaey 7"
+        },
+        {
+          "src": "assets/heimaey-8.png",
+          "caption": "Heimaey 8"
+        },
+        {
+          "src": "assets/heimaey-9.png",
+          "caption": "Heimaey 9"
+        },
+        {
+          "src": "assets/heimaey-10.png",
+          "caption": "Heimaey 10"
+        },
+        {
+          "src": "assets/heimaey-11.png",
+          "caption": "Heimaey 11"
+        },
+        {
+          "src": "assets/heimaey-12.png",
+          "caption": "Heimaey 12"
+        }
+      ],
+      "fileType": "images",
+      "tools": [
+        "Lightroom",
+        "4x5 negatives"
+      ]
+    },
+    {
+      "title": "Skogar",
+      "year": 2013,
+      "group": "Ultima Thule",
+      "description": "<p>Heimaey sits on a living geology. The 1973 eruption didn't end so much as pause — the lava fields remain, the buried houses remain, and the island's expanded coastline, formed from that eruption, shelters the fishing fleet that has always been the reason to live here at all. The island grew during the eruption. That new land became the harbor wall that saved the fishing industry. The catastrophe created the conditions for survival.</p><p>These photographs follow a material that keeps reappearing: black netting, draped over stored fishing gear, over excavated foundations, over the managed lava fields at the edge of town. It may be literally the same material — on a small island, things get repurposed. The fishing nets echo the memorial netting. It covers objects to store them, to preserve them, to hold them in suspension between one use and the next. In doing so it makes new landforms out of hidden ones, a second topography laid over the first. The eruption created the harbor that saved the fishing industry, which supplies the netting that now marks the site of the eruption. On Heimaey, catastrophe and survival share the same materials.</p>",
+      "images": [
+        {
+          "src": "assets/skogar-1.jpg",
+          "caption": "Skogar"
+        }
+      ],
+      "fileType": "images",
+      "tools": [
+        "Lightroom",
+        "4x5 negatives"
+      ]
+    },
+    {
       "title": "Grid Dirt Glass",
       "year": 2005,
       "group": "Not the West Side Highway",
