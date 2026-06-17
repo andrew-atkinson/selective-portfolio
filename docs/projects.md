@@ -304,6 +304,12 @@ Ultima Thule
 
 ### Description
 
+Heimaey sits on a living geology. The 1973 eruption didn't end so much as pause — the lava fields remain, the buried houses remain, and the island's expanded coastline, formed from that eruption, shelters the fishing fleet that has always been the reason to live here at all. The island grew during the eruption. That new land became the harbor wall that saved the fishing industry. The catastrophe created the conditions for survival.
+
+These photographs follow a material that keeps reappearing: black netting, draped over stored fishing gear, over excavated foundations, over the managed lava fields at the edge of town. It may be literally the same material — on a small island, things get repurposed. The fishing nets echo the memorial netting. It covers objects to store them, to preserve them, to hold them in suspension between one use and the next. In doing so it makes new landforms out of hidden ones, a second topography laid over the first.
+
+The eruption created the harbor that saved the fishing industry, which supplies the netting that now marks the site of the eruption. On Heimaey, catastrophe and survival share the same materials.
+
 ### Tools
 
 - Lightroom
