@@ -409,3 +409,75 @@ The glass window acts as a partial backstop to the sediment and pollution, the s
 ### File Type
 
 images
+
+---
+
+## Project 10
+
+### Title
+
+Soteriology
+
+### Year
+
+2000-07
+
+### Group
+
+Soteriology
+
+### Description
+
+The running man as pneumatic spark. In Valentinian gnosticism, sparks of pneuma — divine light — are scattered through matter, trapped in bodies and institutions, always straining toward return to the Pleroma. The ISO running man is already this figure. He's stripped of identity, nationality, gender — pure kinetic intention toward a white rectangle that is simultaneously a doorway and a light source and a photographic ground. He appears in every building in the Western world, installed there by the archons (building codes, safety regulations — the bureaucratic Demiurge). Your work is doing something precise: it's extracting him from his administrative context and asking what he actually is.
+
+### Tools
+
+- Lightwave
+- Photoshop
+
+### Images
+
+![Soteriology 1](../assets/soteriology/soteriology--1.png)
+![Soteriology 2](../assets/soteriology/soteriology--2.png)
+![Soteriology 3](../assets/soteriology/soteriology--3.png)
+![Soteriology 4](../assets/soteriology/soteriology--4.png)
+![Soteriology 5](../assets/soteriology/soteriology--5.png)
+![Soteriology 6](../assets/soteriology/soteriology--6.png)
+![Soteriology 7](../assets/soteriology/soteriology--7.png)
+![Soteriology 8](../assets/soteriology/soteriology--8.png)
+![Soteriology 9](../assets/soteriology/soteriology--9.png)
+![Soteriology 10](../assets/soteriology/soteriology--10.png)
+![Soteriology 11](../assets/soteriology/soteriology--11.png)
+![Soteriology 12](../assets/soteriology/soteriology--12.png)
+![Soteriology 13](../assets/soteriology/soteriology--13.png)
+![Soteriology 14](../assets/soteriology/soteriology--14.png)
+![Soteriology 15](../assets/soteriology/soteriology--15.png)
+![Soteriology 16](../assets/soteriology/soteriology--16.png)
+![Soteriology 17](../assets/soteriology/soteriology--17.png)
+![Soteriology 18](../assets/soteriology/soteriology--18.png)
+![Soteriology 19](../assets/soteriology/soteriology--19.png)
+![Soteriology 20](../assets/soteriology/soteriology--20.png)
+![Soteriology 21](../assets/soteriology/soteriology--21.png)
+![Soteriology 22](../assets/soteriology/soteriology--22.png)
+![Soteriology 23](../assets/soteriology/soteriology--23.png)
+![Soteriology 24](../assets/soteriology/soteriology--24.png)
+![Soteriology 25](../assets/soteriology/soteriology--25.png)
+![Soteriology 26](../assets/soteriology/soteriology--26.png)
+![Soteriology 27](../assets/soteriology/soteriology--27.png)
+![Soteriology 28](../assets/soteriology/soteriology--28.png)
+![Soteriology 29](../assets/soteriology/soteriology--29.png)
+![Soteriology 30](../assets/soteriology/soteriology--30.png)
+![Soteriology 31](../assets/soteriology/soteriology--31.png)
+![Soteriology 32](../assets/soteriology/soteriology--32.png)
+![Soteriology 33](../assets/soteriology/soteriology--33.png)
+![Soteriology 34](../assets/soteriology/soteriology--34.png)
+![Soteriology 35](../assets/soteriology/soteriology--35.png)
+![Soteriology 36](../assets/soteriology/soteriology--36.png)
+![Soteriology 37](../assets/soteriology/soteriology--37.png)
+![Soteriology 38](../assets/soteriology/soteriology--38.png)
+![Soteriology 39](../assets/soteriology/soteriology--39.png)
+![Soteriology 40](../assets/soteriology/soteriology--40.png)
+
+### File Type
+
+images
